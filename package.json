@@ -1,0 +1,9 @@
+{
+  "name": "be-member-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:asso-code2be/be-member-backend.git",
+  "author": "Code2Be Team",
+  "license": "MIT",
+  "private": true
+}
