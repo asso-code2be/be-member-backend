@@ -11,6 +11,7 @@ services:
       - be-member
     depends_on:
       - db
+    restart: unless-stopped
   db:
     image: mariadb
     volumes:
@@ -21,6 +22,17 @@ services:
           - db
     environment:
       - MYSQL_ROOT_PASSWORD=root
+    restart: unless-stopped
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    networks:
+      - be-member
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+    ports:
+      - 4000:80
 
 
 networks:
