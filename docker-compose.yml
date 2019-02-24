@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  web:
+    image: lelenaic/node-forever:11-alpine
+    volumes:
+      - ./:/app
+    ports:
+      - 3000:3000
+    networks:
+      - be-member
+    depends_on:
+      - db
+  db:
+    image: mariadb
+    volumes:
+      - ../be-member-db:/var/lib/mysql
+    networks:
+      be-member:
+        aliases:
+          - db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+
+
+networks:
+  be-member: {}
