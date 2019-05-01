@@ -1,4 +1,4 @@
-export interface memberSummary {
+export interface MemberSummary {
     id: string;
     displayName: string;
 }

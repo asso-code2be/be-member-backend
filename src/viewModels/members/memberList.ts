@@ -1,5 +1,5 @@
-import { memberSummary } from "./memberSummary";
+import { MemberSummary } from "./memberSummary";
 
-export interface memberList extends memberSummary {
+export interface MemberList extends MemberSummary {
     email: string;
 }

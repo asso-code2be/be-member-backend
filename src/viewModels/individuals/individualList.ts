@@ -1,6 +1,6 @@
-import { memberList } from "../members/memberList";
+import { MemberList } from "../members/memberList";
 
-export interface IndividualList extends memberList {
+export interface IndividualList extends MemberList {
     firstName: string;
     lastName: string;
 }
