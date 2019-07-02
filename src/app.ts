@@ -12,7 +12,7 @@ app.get(`/`, (req, res) => {
 });
 
 useExpressServer(app, {
-  controllers: [MembersController]
+  controllers: [MembersController,CompaniesController,IndividualsController]
 });
 
 const port = process.env.PORT || 3000;
