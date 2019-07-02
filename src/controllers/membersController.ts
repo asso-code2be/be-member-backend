@@ -1,5 +1,6 @@
 import { JsonController, Get } from 'routing-controllers';
 import { MemberList } from '../viewModels';
+import {Member} from "../models/Member";
 
 // https://codebrains.io/express-typescript-routing-controllers/
 // https://github.com/typestack/routing-controllers
@@ -10,12 +11,7 @@ export class MembersController {
   }
 
   @Get()
-  getMembers() {
-    const results: MemberList[] = [
-      { id: '123-abc', email: 'john@doe.io', displayName: 'John Doe'},
-      { id: '234-bcd', email: 'jane@doe.io', displayName: 'Jane Doe'}
-    ]
-
-    return results;
+  async getMembers() {
+    return await Member.query();
   }
 }

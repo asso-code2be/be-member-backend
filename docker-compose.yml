@@ -2,13 +2,13 @@ version: '3.7'
 
 services:
   web:
-    image: lelenaic/node-forever:11-alpine
+    image: node:11-alpine
+    command: yarn docker-dev
+    working_dir: /app
     volumes:
       - ./:/app
     ports:
       - 3000:3000
-    networks:
-      - be-member
     depends_on:
       - db
     restart: unless-stopped
@@ -16,24 +16,15 @@ services:
     image: mariadb
     volumes:
       - ../be-member-db:/var/lib/mysql
-    networks:
-      be-member:
-        aliases:
-          - db
     environment:
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=be_member
     restart: unless-stopped
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    networks:
-      - be-member
     environment:
       - PMA_HOST=db
       - PMA_USER=root
       - PMA_PASSWORD=root
     ports:
-      - 4000:80
-
-
-networks:
-  be-member: {}
+      - 81:80
