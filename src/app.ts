@@ -2,6 +2,8 @@ import * as express from 'express';
 import { useExpressServer } from 'routing-controllers';
 
 import { MembersController } from './controllers';
+import { CompaniesController } from './controllers';
+import { IndividualsController } from './controllers';
 
 const app: express.Application = express();
 
