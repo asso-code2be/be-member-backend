@@ -1,21 +1,18 @@
 import { JsonController, Get } from 'routing-controllers';
 import { MemberList } from '../viewModels';
+import { MemberRepository } from '../repositories';
 
 // https://codebrains.io/express-typescript-routing-controllers/
 // https://github.com/typestack/routing-controllers
 
 @JsonController('/members')
 export class MembersController {
-  constructor() {
+  constructor(private memberRepository: MemberRepository) {
+    console.log('repo', this.memberRepository);
   }
 
-  @Get()
-  getMembers() {
-    const results: MemberList[] = [
-      { id: '123-abc', email: 'john@doe.io', displayName: 'John Doe'},
-      { id: '234-bcd', email: 'jane@doe.io', displayName: 'Jane Doe'}
-    ]
-
-    return results;
+  @Get('/')
+  async getMembers(): Promise<MemberList[]> {
+    return await this.memberRepository.GetAll();
   }
 }

@@ -1,9 +1,11 @@
+import "reflect-metadata"; // this shim is required
 import * as express from 'express';
-import { useExpressServer } from 'routing-controllers';
-
-import { MembersController } from './controllers';
+import { useExpressServer, useContainer } from 'routing-controllers';
+import { Container } from "typedi";
 
 const app: express.Application = express();
+
+useContainer(Container);
 
 app.get(`/`, (req, res) => {
     res.send(`Hello, welcome at Be-Member backend !`);
