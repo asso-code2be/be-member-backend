@@ -2,6 +2,7 @@ import {JsonController, Get, Post, Body} from 'routing-controllers';
 import { MemberList } from '../viewModels';
 import {Member} from "../models/Member";
 import IMember from "../types/IMember";
+import * as uuid from 'uuid';
 
 // https://codebrains.io/express-typescript-routing-controllers/
 // https://github.com/typestack/routing-controllers
@@ -18,9 +19,10 @@ export class MembersController {
 
   @Post()
   async createMembers (@Body() member: Member) {
-    await Member.query().insert({
-
+    return await Member.query().insert({
+      firstname: member.firstname,
+      lastname: member.lastname,
+      email: member.email,
     });
-    return member;
   }
 }
