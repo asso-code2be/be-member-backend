@@ -1,6 +1,6 @@
 import * as express from 'express';
 import { useExpressServer } from 'routing-controllers';
-
+import "reflect-metadata";
 import { MembersController } from './controllers';
 
 const app: express.Application = express();
