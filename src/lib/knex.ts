@@ -1,3 +1,4 @@
+// @ts-ignore
 import * as knexConfig from '../../knexfile';
 import * as knex from 'knex';
 
