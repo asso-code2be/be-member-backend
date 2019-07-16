@@ -2,6 +2,8 @@ import * as express from 'express';
 import { useExpressServer } from 'routing-controllers';
 import "reflect-metadata";
 import { MembersController } from './controllers';
+import { CompaniesController } from './controllers';
+import { IndividualsController } from './controllers';
 
 const app: express.Application = express();
 
@@ -10,7 +12,7 @@ app.get(`/`, (req, res) => {
 });
 
 useExpressServer(app, {
-  controllers: [MembersController]
+  controllers: [MembersController,CompaniesController,IndividualsController]
 });
 
 const port = process.env.PORT || 3000;
