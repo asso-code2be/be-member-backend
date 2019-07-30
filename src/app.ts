@@ -1,9 +1,13 @@
 import "reflect-metadata"; // this shim is required
+import { config } from "dotenv";
+config();
+
 import * as express from 'express';
 import { useExpressServer, useContainer } from 'routing-controllers';
 import { Container } from "typedi";
-import { CompaniesController } from './controllers';
-import { IndividualsController } from './controllers';
+import { knexInstance } from "./lib/knex";
+
+knexInstance.migrate.latest();
 
 const app: express.Application = express();
 

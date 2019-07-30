@@ -1,6 +1,6 @@
 import {Model} from "objection";
-import knex from "./knex";
+import { knexInstance } from "./knex";
 
-Model.knex(knex);
+Model.knex(knexInstance);
 
 export default Model;

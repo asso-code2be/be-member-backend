@@ -14,6 +14,7 @@
     "docker-dev": "yarn && yarn dev"
   },
   "dependencies": {
+    "@types/dotenv": "^6.1.1",
     "@types/express": "^4.16.1",
     "@types/uuid": "^3.4.5",
     "dotenv": "^6.2.0",
@@ -25,14 +26,15 @@
     "reflect-metadata": "^0.1.13",
     "routing-controllers": "^0.7.7",
     "ts-node-dev": "^1.0.0-pre.32",
-    "typescript": "^3.3.3333",
     "typedi": "^0.8.0",
+    "typescript": "^3.3.3333",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
     "eslint": "^5.14.1",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0"
+    "eslint-plugin-import": "^2.16.0",
+    "sqlite3": "^4.0.9"
   },
   "engines": {
     "node": ">=10"

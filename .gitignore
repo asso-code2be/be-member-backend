@@ -35,6 +35,9 @@ build/Release
 # Compiled app
 dist
 
+# Application data
+db.sqlite
+
 # Dependency directories
 node_modules/
 jspm_packages/
