@@ -1,24 +1,11 @@
 import { Service } from "typedi";
-import { Member } from "../models/Member";
-
-export interface StubMemberModel {
-    id: string;
-    displayName: string;
-    email: string;
-}
+import {Member} from "../models/Member";
 
 @Service()
 export class MemberRepository {
     constructor() {}
 
-    public GetAll(): Promise<StubMemberModel[]> {
-        /*const results: StubMemberModel[] = [
-            { id: '123-abc', email: 'john@doe.io', displayName: 'John Doe'},
-            { id: '234-bcd', email: 'jane@doe.io', displayName: 'Jane Doe'}
-        ];
-
-        return Promise.resolve(results);*/
-
-        return Member.query().then();
+    public async getAll(): Promise<Member[]> {
+        return await Member.query();
     }
 } 
