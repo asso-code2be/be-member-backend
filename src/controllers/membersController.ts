@@ -12,16 +12,23 @@ export class MembersController {
   }
 
   @Get('/')
-  async getMembers(): Promise<Member[]> {
-    return await this.memberRepository.getAll();
+  async getMembers(): Promise<MemberList[]> {
+    return await this.memberRepository.getAll()
+      .then(result => result.map(member => {
+        return {
+          id: member.id,
+          displayName: `${member.firstname} ${member.lastname}`,
+          email: member.email
+          }
+      }));
   }
 
-  @Post('/')
+  /*@Post('/')
   async createMembers (@Body() member: any) {
     return await Member.query().insert({
       firstname: member.firstname,
       lastname: member.lastname,
       email: member.email,
     });
-  }
+  }*/
 }
