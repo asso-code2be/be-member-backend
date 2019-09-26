@@ -1,4 +1,4 @@
-# Be-Memeber backend
+# Be-Member backend
 
 ### Install
 ```
